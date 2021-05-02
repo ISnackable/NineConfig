@@ -80,11 +80,13 @@ export default function ReactGrid() {
 
     setRows(changedRows);
 
-    let newUserBackup = [ ...userBackup ]
-
-    newUserBackup[0][currentList] = changedRows;
-
-    setUserBackup( newUserBackup )
+    if (userBackup.length) {
+      let newUserBackup = [ ...userBackup ]
+  
+      newUserBackup[0][currentList] = changedRows;
+  
+      setUserBackup( newUserBackup )
+    }
   };
 
   const addEmptyRow = () => commitChanges({ added: [{}] });
