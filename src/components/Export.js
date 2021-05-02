@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { ContextContainer } from './Dashboard'
 import cloneDeep from 'lodash/cloneDeep';
+import bplist from 'bplist';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,8 +72,8 @@ export default function ExportButtons() {
             }
 
             // Creating the Plist buffer 
-            let userBackupBuf = window.createPlist(exportUserBackup);
-
+            let userBackupBuf = bplist.create(exportUserBackup);
+            
             // Creating the file
             downloadBlob(userBackupBuf, `${String(exportUserBackup[0]["exportedDate"])}.naconfig`, 'application/octet-stream');
         } else {

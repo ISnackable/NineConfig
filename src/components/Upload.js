@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { ContextContainer } from './Dashboard';
+import bplist from 'bplist';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,22 +40,21 @@ export default function UploadButtons() {
     // Make it into a Buffer
     let buffer = Buffer(arrayBuffer, "binary");
 
-    // parse the Plist and returns an object
-    let userBackup = window.parsePlist(buffer);
-
-    // TODO: make sure to wait until userBackup is defined
-    if (userBackup) {
-      for (const property in userBackup[0]) {
-        if (property === "history" || /* property === "trackingData" || */ property === "subscriptions") {
-          // Add a ID property to the object, neccessary for gird editing to work. Will remove them when exporting.
-          userBackup[0][property].forEach((entries, index) => { entries.id = index });
+    // parse the Plist
+    bplist.parseBuffer(buffer, function (err, userBackup) {
+      if (!err) {
+        for (const property in userBackup[0]) {
+          if (property === "history" || /* property === "trackingData" || */ property === "subscriptions") {
+            // Add a ID property to the object, neccessary for gird editing to work. Will remove them when exporting.
+            userBackup[0][property].forEach((entries, index) => { entries.id = index });
+          }
         }
+        // set/save the userBackup object to userBackup context hook
+        setUserBackup(userBackup);
+        // set the Rows to the userBackup currentList (default: history)
+        setRows(userBackup[0][currentList]);
       }
-      // set/save the userBackup object to userBackup context hook
-      setUserBackup(userBackup);
-      // set the Rows to the userBackup currentList (default: history)
-      setRows(userBackup[0][currentList]);
-    }
+    });
   };
 
   const handleFileChosen = (file) => {
