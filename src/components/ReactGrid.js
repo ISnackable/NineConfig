@@ -45,7 +45,7 @@ export default function ReactGrid() {
     {
       name: 'image', title: 'Image',
       // This allow us to retrieve nested object
-      getCellValue: (row) => (row.link ? row.link.relative : undefined)
+      getCellValue: (row) => (row.link ? row.image.relative : undefined)
     },
     {
       name: 'link', title: 'Link',
