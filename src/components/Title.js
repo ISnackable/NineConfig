@@ -1,0 +1,19 @@
+/**
+ * I'm not sure what this file even do
+ * Don't touch, it breaks everything lol
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+
+export default function Title(props) {
+  return (
+    <Typography component="h2" variant="h6" color="primary" gutterBottom>
+      {props.children}
+    </Typography>
+  );
+}
+
+Title.propTypes = {
+  children: PropTypes.node,
+};
