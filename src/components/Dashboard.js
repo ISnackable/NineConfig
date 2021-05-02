@@ -104,16 +104,7 @@ export default function Dashboard() {
   const [open, setOpen] = useState(true);
 
   // Creating "global" variables for other react components to use
-  const [userBackup, setUserBackup] = useState({
-    title: '',
-    source: '',
-    image: {
-      relative: ''
-    },
-    link: {
-      relative: ''
-    }
-  });
+  const [userBackup, setUserBackup] = useState([]);
   const [rows, setRows] = useState([]); // Rows of the grid, will be populated by userBackup
   const [currentList, setCurrentList] = useState("history"); // Track current list user has clicked, default: history
 
