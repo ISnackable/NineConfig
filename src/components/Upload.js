@@ -10,6 +10,22 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { ContextContainer } from './Dashboard';
 import bplist from 'bplist';
 
+// function recursiveParsePlist(object) {
+//   Object.keys(object).forEach(key => {
+//     if (typeof object[key] === "object") {
+//       recursiveParsePlist(object[key]);
+//     }
+//     if (object[key] instanceof Uint8Array) {
+//       bplist.parseBuffer(object[key], function (err, result) {
+//         if (!err) {
+//           object[key] = result;
+//           recursiveParsePlist(object[key]);
+//         }
+//       });
+//     }
+//   });
+// }
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {

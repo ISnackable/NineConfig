@@ -5,8 +5,6 @@
 import React, { useState, useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
 import {
-  SummaryState,
-  IntegratedSummary,
   SortingState,
   IntegratedSorting,
   SearchState,
@@ -24,7 +22,6 @@ import {
   TableColumnResizing,
   TableEditColumn,
   TableInlineCellEditing,
-  TableSummaryRow,
   PagingPanel,
 } from '@devexpress/dx-react-grid-material-ui';
 import { ContextContainer } from './Dashboard'
@@ -60,15 +57,13 @@ export default function ReactGrid() {
       getCellValue: (row) => (row.link ? row.link.relative : undefined)
     },
   ]);
+  const [pageSizes] = useState([25, 50, 100, 0]);
   // Set a defaultColumnWidth for resizing the columns
   const [defaultColumnWidths] = useState([
     { columnName: 'title', width: 200 },
     { columnName: 'source', width: 150 },
     { columnName: 'image', width: 350 },
     { columnName: 'link', width: 350 },
-  ]);
-  const [totalSummaryItems] = useState([
-    { columnName: 'title', type: 'count' },
   ]);
   const [editingColumnExtensions] = useState([
     {
@@ -128,24 +123,19 @@ export default function ReactGrid() {
           addedRows={[]}
           onAddedRowsChange={addEmptyRow}
         />
-        <SummaryState
-          totalItems={totalSummaryItems}
-        />
-        <IntegratedSummary />
         <SortingState
           defaultSorting={[{ columnName: 'title', direction: 'asc' }]}
         />
         <IntegratedSorting />
         <PagingState
           defaultCurrentPage={0}
-          pageSize={50}
+          defaultPageSize={25}
         />
         <IntegratedPaging />
         <Table cellComponent={FocusableCell} />
         <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
         <TableHeaderRow showSortingControls />
-        <PagingPanel />
-        <TableSummaryRow />
+        <PagingPanel pageSizes={pageSizes} />
         <TableInlineCellEditing selectTextOnEditStart />
         <TableEditColumn
           showAddCommand

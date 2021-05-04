@@ -56,13 +56,11 @@ export default function ExportButtons() {
 
     const handleExport = () => {
         if (userBackup[0]) {
-
             // Cloning using Lodash library clonedeep as JavaScript ES6 sucks
             let exportUserBackup = cloneDeep(userBackup)
 
             // Replaces the exportedDate in the NineAnimator backup with current date 
             exportUserBackup[0]["exportedDate"] = new Date();
-            exportUserBackup[0]["trackingData"] = [] // Removing trackingData for now. Will fix.
 
             for (const property in exportUserBackup[0]) {
                 if (property === "history" || /* property === "trackingData" || */ property === "subscriptions") {
