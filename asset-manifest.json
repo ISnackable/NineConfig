@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/NineConfig/static/css/main.1635e87c.chunk.css",
+    "main.js": "/NineConfig/static/js/main.5ab3e8e5.chunk.js",
+    "main.js.map": "/NineConfig/static/js/main.5ab3e8e5.chunk.js.map",
+    "runtime-main.js": "/NineConfig/static/js/runtime-main.5371e75e.js",
+    "runtime-main.js.map": "/NineConfig/static/js/runtime-main.5371e75e.js.map",
+    "static/js/2.8afdfbf0.chunk.js": "/NineConfig/static/js/2.8afdfbf0.chunk.js",
+    "static/js/2.8afdfbf0.chunk.js.map": "/NineConfig/static/js/2.8afdfbf0.chunk.js.map",
+    "static/js/3.915028ce.chunk.js": "/NineConfig/static/js/3.915028ce.chunk.js",
+    "static/js/3.915028ce.chunk.js.map": "/NineConfig/static/js/3.915028ce.chunk.js.map",
+    "index.html": "/NineConfig/index.html",
+    "static/css/main.1635e87c.chunk.css.map": "/NineConfig/static/css/main.1635e87c.chunk.css.map",
+    "static/js/2.8afdfbf0.chunk.js.LICENSE.txt": "/NineConfig/static/js/2.8afdfbf0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5371e75e.js",
+    "static/js/2.8afdfbf0.chunk.js",
+    "static/css/main.1635e87c.chunk.css",
+    "static/js/main.5ab3e8e5.chunk.js"
+  ]
+}
